@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiffin Service Bot - Demo Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #fff5eb 0%, #fef3c7 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #ea580c;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .demo-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .demo-section h2 {
+            color: #ea580c;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .chat-preview {
+            background: linear-gradient(135deg, #fff5eb 0%, #fef3c7 100%);
+            border-radius: 15px;
+            padding: 20px;
+            height: 500px;
+            overflow-y: auto;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+        }
+        
+        .message.bot {
+            justify-content: flex-start;
+        }
+        
+        .message.user {
+            justify-content: flex-end;
+        }
+        
+        .message-bubble {
+            max-width: 70%;
+            padding: 15px 20px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .message.bot .message-bubble {
+            background: white;
+            color: #1f2937;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .message.user .message-bubble {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+        }
+        
+        .order-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .status-new {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 2px solid #fca5a5;
+        }
+        
+        .order-detail {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .order-detail strong {
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+        
+        .order-detail p {
+            color: #1f2937;
+            font-weight: 500;
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #eab308 0%, #ea580c 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .features {
+            background: #f0fdf4;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .features h3 {
+            color: #15803d;
+            margin-bottom: 15px;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .features li {
+            padding: 8px 0;
+            color: #166534;
+        }
+        
+        .features li:before {
+            content: "✅ ";
+            margin-right: 10px;
+        }
+        
+        .instructions {
+            background: #eff6ff;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .instructions h3 {
+            color: #1e40af;
+            margin-bottom: 15px;
+        }
+        
+        .instructions code {
+            background: #1e293b;
+            color: #22d3ee;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍱 Tiffin Service AI Bot - Demo Preview</h1>
+        
+        <div class="instructions">
+            <h3>🚀 How to Run the Application</h3>
+            <p><strong>1. Navigate to the project directory:</strong></p>
+            <p><code>cd tiffin-service-bot</code></p>
+            <br>
+            <p><strong>2. Start the development server:</strong></p>
+            <p><code>npm run dev</code></p>
+            <br>
+            <p><strong>3. Open in your browser:</strong></p>
+            <p>Customer Interface: <code>http://localhost:3000</code></p>
+            <p>Cook Dashboard: <code>http://localhost:3000/cook</code></p>
+        </div>
+        
+        <div class="demo-grid">
+            <div class="demo-section">
+                <h2>💬 Customer Chat Interface</h2>
+                <div class="chat-preview">
+                    <div class="message bot">
+                        <div class="message-bubble">
+                            Hello! 👋 Welcome to our Tiffin Service! I'm here to help you place your order. Would you like to order a tiffin today?
+                        </div>
+                    </div>
+                    <div class="message user">
+                        <div class="message-bubble">
+                            Yes, I would like to order
+                        </div>
+                    </div>
+                    <div class="message bot">
+                        <div class="message-bubble">
+                            Great! Let's get started. What's your name?
+                        </div>
+                    </div>
+                    <div class="message user">
+                        <div class="message-bubble">
+                            Priya Sharma
+                        </div>
+                    </div>
+                    <div class="message bot">
+                        <div class="message-bubble">
+                            Nice to meet you, Priya Sharma! 😊 What's your phone number?
+                        </div>
+                    </div>
+                    <div class="message user">
+                        <div class="message-bubble">
+                            9876543210
+                        </div>
+                    </div>
+                    <div class="message bot">
+                        <div class="message-bubble">
+                            Perfect! Where should we deliver your tiffin? Please provide your complete address.
+                        </div>
+                    </div>
+                    <div class="message user">
+                        <div class="message-bubble">
+                            45 MG Road, Bangalore
+                        </div>
+                    </div>
+                    <div class="message bot">
+                        <div class="message-bubble">
+                            Got it! What type of meal would you like?<br><br>
+                            • Vegetarian<br>
+                            • Non-Vegetarian<br>
+                            • Vegan<br>
+                            • Jain<br><br>
+                            Please choose one.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-section">
+                <h2>👨‍🍳 Cook Dashboard</h2>
+                <div class="order-card">
+                    <span class="status-badge status-new">🆕 NEW</span>
+                    <div class="order-detail">
+                        <strong>Customer:</strong>
+                        <p>Priya Sharma</p>
+                    </div>
+                    <div class="order-detail">
+                        <strong>📞 Phone:</strong>
+                        <p>9876543210</p>
+                    </div>
+                    <div class="order-detail">
+                        <strong>📍 Address:</strong>
+                        <p>45 MG Road, Bangalore</p>
+                    </div>
+                    <div class="order-detail">
+                        <strong>🍽️ Meal Type:</strong>
+                        <p>Vegetarian</p>
+                    </div>
+                    <div class="order-detail">
+                        <strong>🔢 Quantity:</strong>
+                        <p>2</p>
+                    </div>
+                    <div class="order-detail">
+                        <strong>⏰ Delivery Time:</strong>
+                        <p>Lunch (12:00 PM - 2:00 PM)</p>
+                    </div>
+                    <div class="order-detail">
+                        <strong>🥗 Dietary Preferences:</strong>
+                        <p>No onion, less spicy</p>
+                    </div>
+                    <div class="order-detail">
+                        <strong>📝 Special Instructions:</strong>
+                        <p>Extra roti please</p>
+                    </div>
+                    <button class="button">Start Preparing</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <h3>✨ Key Features</h3>
+            <ul>
+                <li>Interactive AI chatbot for natural conversation</li>
+                <li>Collects all order details: name, phone, address, meal type, quantity, delivery time</li>
+                <li>Dietary preferences and special instructions support</li>
+                <li>Real-time order notifications for cook with audio alerts</li>
+                <li>Cook dashboard with order status tracking (New → Preparing → Delivered)</li>
+                <li>Auto-refresh every 5 seconds for new orders</li>
+                <li>Beautiful gradient UI with responsive design</li>
+                <li>TypeScript for type safety</li>
+                <li>JSON file-based storage (no database required)</li>
+                <li>Easy to deploy and customize</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
